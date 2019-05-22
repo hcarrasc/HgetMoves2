@@ -26,7 +26,8 @@ class ViewController: NSViewController {
         print ("actualizacion de data des...");
         
         let ws = WebserviceHandler()
-        ws.doConnection()
+        ws.getChessdotcomStats()
+        ws.getChessdotcomPendingGames()
         
     }
     
