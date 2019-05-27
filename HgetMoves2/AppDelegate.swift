@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItem.button?.title = "chess"
@@ -39,6 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popoverView.behavior = .transient
         popoverView.show (relativeTo: button.bounds, of: button, preferredEdge: .maxY)
         
+    }
+    
+    func changeAppTitle (title: String) {
+        statusItem.button?.title = title
     }
 
 

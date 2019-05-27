@@ -10,9 +10,9 @@ import Cocoa
 
 class WebserviceHandler: NSObject {
     
-    var json = NSDictionary()
+    var json : [String: Any] = [:]
     
-    func getChessdotcomStats(){
+    func getChessdotcomStats() {
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -48,7 +48,6 @@ class WebserviceHandler: NSObject {
         
     }
     
-    
     func getChessdotcomPendingGames() {
         
         let config = URLSessionConfiguration.default
@@ -70,18 +69,31 @@ class WebserviceHandler: NSObject {
                 return
             }
             
+            print ("row content:=> \(content)")
+            
             // serialise the data / NSData object into Dictionary [String : Any]
             guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
                 print("Not containing JSON")
                 return
             }
             
-            print("games::::: is \n \(json)")
+            print ("json dict: => \(json)")
             // update UI using the response here
         }
         
-        // execute the HTTP request
         task.resume()
+    }
+    
+    class Games {
+        
+        init(url: String, move: Int32, activity: Int32) {
+            self.url = url
+            self.last_activity = activity
+            self.move_by = move
+        }
+        var url: String = ""
+        var move_by : Int32 = 0
+        var last_activity : Int32 = 0
     }
 
 
