@@ -83,18 +83,6 @@ class WebserviceHandler: NSObject {
         
         task.resume()
     }
-    
-    class Games {
-        
-        init(url: String, move: Int32, activity: Int32) {
-            self.url = url
-            self.last_activity = activity
-            self.move_by = move
-        }
-        var url: String = ""
-        var move_by : Int32 = 0
-        var last_activity : Int32 = 0
-    }
 
 
 }

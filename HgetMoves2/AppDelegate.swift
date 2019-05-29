@@ -45,6 +45,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.title = title
     }
 
-
 }
 

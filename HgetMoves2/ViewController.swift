@@ -8,94 +8,7 @@
 
 import Cocoa
 
-struct ChessGames: Decodable{
-    let games : [Games]
-}
-
-struct Games: Decodable {
-    let url: String
-    let move_by : Int32
-    let last_activity : Int32
-}
-
-struct Stats: Decodable {
-    let chess_daily: ChessDaily
-    let chess960_daily: Chess960Daily
-    let chess_rapid: ChessRapid
-    let chess_bullet: ChessBullet
-    let chess_blitz: ChessBlitz
-    let tactics: Tactics
-    let lessons: Lessons
-}
-
-struct ChessDaily : Decodable {
-    var last: Last
-    var best: Best
-    var record: Record
-    var tournament: Tournament
-}
-struct Chess960Daily : Decodable{
-    var last: Last
-    var best: Best
-    var record: Record
-    var tournament: Tournament
-}
-struct ChessRapid : Decodable{
-    var last: Last
-    var best: Best
-    var record: Record
-}
-struct ChessBullet : Decodable{
-    var last: Last
-    var best: Best
-    var record: Record
-}
-struct ChessBlitz : Decodable{
-    var last: Last
-    var best: Best
-    var record: Record
-}
-struct Tactics : Decodable{
-    var highest : Highest
-    var lowest : Lowest
-}
-struct Lessons : Decodable{
-    var highest : Highest
-    var lowest : Lowest
-}
-struct Highest : Decodable {
-    var rating: Int
-    var date: CLong
-}
-struct Lowest : Decodable {
-    var rating: Int
-    var date: CLong
-}
-struct Last : Decodable {
-    var rating: Int
-    var date: CLong
-    var rd: Int
-}
-struct Best : Decodable {
-    var rating : Int
-    var date : CLong
-    var game: String
-}
-struct Record : Decodable {
-    var win: Int
-    var loss: Int
-    var draw: Int
-    var time_per_move: Int?
-    var timeout_percent: Float?
-}
-struct Tournament : Decodable {
-    var points: Int
-    var withdraw: Int
-    var count: Int
-    var highest_finish: Int
-}
-
-class ViewController: NSViewController, NSApplicationDelegate {
+class ViewController: NSViewController {
     
     @IBOutlet weak var pendingGamesLabel: NSTextField!
     @IBOutlet weak var dailyEloLabel: NSTextField!
@@ -104,11 +17,13 @@ class ViewController: NSViewController, NSApplicationDelegate {
     @IBOutlet weak var blitzRapidEloLabel: NSTextField!
     @IBOutlet weak var statisticsLabel: NSTextField!
     @IBOutlet weak var totalGamesLabel: NSTextField!
+    @IBOutlet var baseView: NSView!
     
     var pendingGames: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSApp.setActivationPolicy(.accessory)
         let user = "hectorcarrasco"
         let jsonUrlPendingGamesString="https://api.chess.com/pub/player/"+user+"/games/to-move"
         guard let url = URL(string: jsonUrlPendingGamesString) else {return}
@@ -118,7 +33,7 @@ class ViewController: NSViewController, NSApplicationDelegate {
             
             do {
                 
-                let parsing  = try JSONDecoder().decode(ChessGames.self, from: data)
+                let parsing  = try JSONDecoder().decode(ChessDataModel.ChessGames.self, from: data)
                 self.pendingGames = parsing.games.count
                 
                 DispatchQueue.main.async { // Correct
@@ -141,7 +56,7 @@ class ViewController: NSViewController, NSApplicationDelegate {
             
             do {
                 
-                let parsing2  = try JSONDecoder().decode(Stats.self, from: data2)
+                let parsing2  = try JSONDecoder().decode(ChessDataModel.Stats.self, from: data2)
                 print (" ===> \(parsing2)")
                 
                 DispatchQueue.main.async { // Correct
@@ -157,7 +72,8 @@ class ViewController: NSViewController, NSApplicationDelegate {
                     
                     self.totalGamesLabel.stringValue = "\(totalPlayed)   [ \(victories) - \(draws) - \(losses) ]"
                     
-                    AppDelegate().changeAppTitle(title: "ELO: \(parsing2.chess_daily.last.rating)")
+                    let appDelegate = NSApp.delegate as! AppDelegate
+                    appDelegate.statusItem.button?.title = "ELO: \(parsing2.chess_daily.last.rating)"
                 }
                                 
             } catch let jsonErr {
@@ -176,7 +92,7 @@ class ViewController: NSViewController, NSApplicationDelegate {
 
     @IBAction func updateButton(_ sender: Any) {
         print ("actualizacion de data des...");
-    
+        
     }
     
     @IBAction func gotoChess(_ sender: Any) {
@@ -199,6 +115,9 @@ class ViewController: NSViewController, NSApplicationDelegate {
         NSWorkspace.shared.open(NSURL(string: "http://www.chess24.com/")! as URL)
     }
     
+    @IBAction func gotoTournamentsButton(_ sender: Any) {
+        NSWorkspace.shared.open(NSURL(string: "https://www.ajefech.cl/ENF/torneosENF.php")! as URL)
+    }
     @IBAction func exitButton(_ sender: Any) {
         exit(0)
     }
