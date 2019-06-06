@@ -678,13 +678,89 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="2"/>
+            <point key="canvasLocation" x="-435" y="-17"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="i05-9o-GHr">
+            <objects>
+                <viewController title="Settings" id="HNe-eA-UEB" customClass="SettingsViewController" customModule="HgetMoves2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" id="jM8-fj-aOf">
+                        <rect key="frame" x="0.0" y="0.0" width="429" height="342"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRD-Uz-2di">
+                                <rect key="frame" x="44" y="288" width="128" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Chess.com User:" id="Hq2-hn-AZ2">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vq6-dy-MVv">
+                                <rect key="frame" x="207" y="286" width="178" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Example: hectorCarrasco" drawsBackground="YES" id="WOz-fp-YYW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pw5-HO-0Up">
+                                <rect key="frame" x="207" y="246" width="178" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Example (for Chile): CHI" drawsBackground="YES" id="UN6-7C-KE7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-o3-Abv">
+                                <rect key="frame" x="25" y="249" width="167" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Chess result country code" id="EL7-Ms-qoV">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wy3-BJ-YXY">
+                                <rect key="frame" x="36" y="207" width="145" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Show ELO in menu bar" id="zAE-dx-bag">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T14-QH-cxe">
+                                <rect key="frame" x="205" y="205" width="182" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JUf-Ga-agv">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="setShowELO:" target="HNe-eA-UEB" id="KYl-zb-3MK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="chessresultCountryCode" destination="Pw5-HO-0Up" id="eyX-lU-JJS"/>
+                        <outlet property="showEloCheckBox" destination="T14-QH-cxe" id="SKJ-Yw-RBd"/>
+                        <outlet property="userNameTextField" destination="Vq6-dy-MVv" id="f48-KJ-oat"/>
+                    </connections>
+                </viewController>
+                <customObject id="bMt-gO-4dF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-166.5" y="223"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="XfG-lQ-9wD" customClass="ViewController" customModule="HgetMoves2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="335" height="574"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -774,15 +850,15 @@
                                     <action selector="gotoLichess:" target="XfG-lQ-9wD" id="MuE-ht-o15"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-XQ-UqT">
-                                <rect key="frame" x="249" y="6" width="40" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Yf-Q1-b1B">
+                                <rect key="frame" x="222" y="6" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSActionTemplate" imagePosition="only" alignment="center" alternateImage="NSAddTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v5M-dx-DKF">
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSInfo" imagePosition="only" alignment="center" alternateImage="NSAddTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PRj-12-ijf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="updateButton:" target="XfG-lQ-9wD" id="h1h-ml-FkX"/>
+                                    <action selector="gotoGithubButton:" target="XfG-lQ-9wD" id="BPQ-03-EHP"/>
                                 </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdQ-bV-CNZ">
@@ -797,7 +873,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2v-MO-TvQ">
-                                <rect key="frame" x="281" y="6" width="40" height="32"/>
+                                <rect key="frame" x="287" y="6" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4oE-sB-UmY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -807,6 +883,15 @@
                                     <action selector="exitButton:" target="XfG-lQ-9wD" id="3y9-9g-lsS"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5b-Y3-9A8">
+                                <rect key="frame" x="132" y="537" width="198" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" id="R3R-QX-wp0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Coo-H4-Khr">
                                 <rect key="frame" x="131" y="513" width="199" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -885,15 +970,22 @@
                                     <action selector="gotoTournamentsButton:" target="XfG-lQ-9wD" id="Aek-zt-FaR"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5b-Y3-9A8">
-                                <rect key="frame" x="132" y="537" width="198" height="17"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-XQ-UqT">
+                                <rect key="frame" x="255" y="6" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" id="R3R-QX-wp0">
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSActionTemplate" imagePosition="only" alignment="center" alternateImage="NSAddTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v5M-dx-DKF">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="updateButton:" target="XfG-lQ-9wD" id="h1h-ml-FkX"/>
+                                    <segue destination="HNe-eA-UEB" kind="modal" id="nOJ-tk-Zcz"/>
+                                </connections>
+                            </button>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yE-gh-Xhn" customClass="GraphView" customModule="HgetMoves2" customModuleProvider="target">
+                                <rect key="frame" x="14" y="54" width="307" height="204"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
                         </subviews>
                     </view>
                     <connections>
@@ -910,7 +1002,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="aMS-Xw-Qy2"/>
             </objects>
-            <point key="canvasLocation" x="2.5" y="363"/>
+            <point key="canvasLocation" x="-668.5" y="339"/>
         </scene>
     </scenes>
     <resources>
@@ -921,6 +1013,7 @@
         <image name="Image-4" width="200" height="200"/>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSInfo" width="32" height="32"/>
         <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
     </resources>
 </document>

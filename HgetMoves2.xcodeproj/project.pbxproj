@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		04326166229F2D6600C515CA /* ChessDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04326165229F2D6600C515CA /* ChessDataModel.swift */; };
+		0432616C22A0531200C515CA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432616B22A0531200C515CA /* SettingsViewController.swift */; };
 		04CEA1522293880300581432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA1512293880300581432 /* AppDelegate.swift */; };
 		04CEA1542293880300581432 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA1532293880300581432 /* ViewController.swift */; };
 		04CEA1562293880700581432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA1552293880700581432 /* Assets.xcassets */; };
 		04CEA1592293880700581432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CEA1572293880700581432 /* Main.storyboard */; };
 		04CEA1632293B94A00581432 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA1622293B94A00581432 /* Webservice.swift */; };
+		04F747A922A946B600F5B072 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F747A822A946B600F5B072 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04326165229F2D6600C515CA /* ChessDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessDataModel.swift; sourceTree = "<group>"; };
+		0432616B22A0531200C515CA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		04CEA14E2293880300581432 /* HgetMoves2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HgetMoves2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CEA1512293880300581432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CEA1532293880300581432 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +28,7 @@
 		04CEA15A2293880700581432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CEA15B2293880700581432 /* HgetMoves2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HgetMoves2.entitlements; sourceTree = "<group>"; };
 		04CEA1622293B94A00581432 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		04F747A822A946B600F5B072 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +61,12 @@
 		04CEA1502293880300581432 /* HgetMoves2 */ = {
 			isa = PBXGroup;
 			children = (
-				04CEA1612293B8DC00581432 /* webservice */,
-				04CEA1532293880300581432 /* ViewController.swift */,
-				04CEA1512293880300581432 /* AppDelegate.swift */,
-				04CEA1552293880700581432 /* Assets.xcassets */,
-				04CEA1572293880700581432 /* Main.storyboard */,
-				04CEA15A2293880700581432 /* Info.plist */,
 				04CEA15B2293880700581432 /* HgetMoves2.entitlements */,
-				04326165229F2D6600C515CA /* ChessDataModel.swift */,
+				04CEA15A2293880700581432 /* Info.plist */,
+				04F747A722A6D82F00F5B072 /* base */,
+				04F747A622A6D7E200F5B072 /* model */,
+				04F747A522A6D78200F5B072 /* view */,
+				04CEA1612293B8DC00581432 /* webservice */,
 			);
 			path = HgetMoves2;
 			sourceTree = "<group>";
@@ -75,6 +77,34 @@
 				04CEA1622293B94A00581432 /* Webservice.swift */,
 			);
 			path = webservice;
+			sourceTree = "<group>";
+		};
+		04F747A522A6D78200F5B072 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				04CEA1532293880300581432 /* ViewController.swift */,
+				0432616B22A0531200C515CA /* SettingsViewController.swift */,
+				04F747A822A946B600F5B072 /* GraphView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		04F747A622A6D7E200F5B072 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				04326165229F2D6600C515CA /* ChessDataModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		04F747A722A6D82F00F5B072 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				04CEA1512293880300581432 /* AppDelegate.swift */,
+				04CEA1552293880700581432 /* Assets.xcassets */,
+				04CEA1572293880700581432 /* Main.storyboard */,
+			);
+			path = base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,7 +191,9 @@
 				04326166229F2D6600C515CA /* ChessDataModel.swift in Sources */,
 				04CEA1542293880300581432 /* ViewController.swift in Sources */,
 				04CEA1522293880300581432 /* AppDelegate.swift in Sources */,
+				0432616C22A0531200C515CA /* SettingsViewController.swift in Sources */,
 				04CEA1632293B94A00581432 /* Webservice.swift in Sources */,
+				04F747A922A946B600F5B072 /* GraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

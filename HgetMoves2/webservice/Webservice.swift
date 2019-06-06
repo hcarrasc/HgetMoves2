@@ -8,81 +8,36 @@
 
 import Cocoa
 
+protocol NetworkDelegate {
+    func didFinishgetStatistic(result: Data)
+    func didFinishgetPendingGames(result: Data)
+}
+
 class WebserviceHandler: NSObject {
     
-    var json : [String: Any] = [:]
+    var delegate: NetworkDelegate? = nil
     
-    func getChessdotcomStats() {
+    func getStatisticData() {
         
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
         let user = "hectorcarrasco"
-        
-        let url = URL(string: "https://api.chess.com/pub/player/"+user+"/stats")!
-        let task = session.dataTask(with: url) { data, response, error in
-            
-            // ensure there is no error for this HTTP response
-            guard error == nil else {
-                print ("error: \(error!)")
-                return
-            }
-            
-            // ensure there is data returned from this HTTP response
-            guard let content = data else {
-                print("No data")
-                return
-            }
-            
-            // serialise the data / NSData object into Dictionary [String : Any]
-            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                print("Not containing JSON")
-                return
-            }
-            
-            print("stats:::::: is \n \(json)")
-            // update UI using the response here
-        }
-        
-        // execute the HTTP request
-        task.resume()
-        
+        let jsonUrlPendingGamesString="https://api.chess.com/pub/player/"+user+"/games/to-move"
+        guard let url = URL(string: jsonUrlPendingGamesString) else {return}
+        URLSession.shared.dataTask(with: url){ (data, response, err) in
+            guard let data = data else {return}
+            self.delegate?.didFinishgetStatistic(result: data)
+            }.resume()
+
     }
     
     func getChessdotcomPendingGames() {
         
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
         let user = "hectorcarrasco"
-        
-        let url = URL(string: "https://api.chess.com/pub/player/"+user+"/games/to-move")!
-        let task = session.dataTask(with: url) { data, response, error in
-            
-            // ensure there is no error for this HTTP response
-            guard error == nil else {
-                print ("error: \(error!)")
-                return
-            }
-            
-            // ensure there is data returned from this HTTP response
-            guard let content = data else {
-                print("No data")
-                return
-            }
-            
-            print ("row content:=> \(content)")
-            
-            // serialise the data / NSData object into Dictionary [String : Any]
-            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                print("Not containing JSON")
-                return
-            }
-            
-            print ("json dict: => \(json)")
-            // update UI using the response here
-        }
-        
-        task.resume()
+        let jsonUrlUserInfoString="https://api.chess.com/pub/player/"+user+"/stats"
+        guard let url = URL(string: jsonUrlUserInfoString) else {return}
+        URLSession.shared.dataTask(with: url){ (data, response, err) in
+            guard let data = data else {return}
+            self.delegate?.didFinishgetPendingGames(result: data)
+        }.resume()
     }
-
-
+    
 }
