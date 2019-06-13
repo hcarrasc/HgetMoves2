@@ -17,26 +17,26 @@ class WebserviceHandler: NSObject {
     
     var delegate: NetworkDelegate? = nil
     
-    func getStatisticData() {
+    func getChessdotcomPendingGames() {
         
         let user = "hectorcarrasco"
         let jsonUrlPendingGamesString="https://api.chess.com/pub/player/"+user+"/games/to-move"
         guard let url = URL(string: jsonUrlPendingGamesString) else {return}
         URLSession.shared.dataTask(with: url){ (data, response, err) in
             guard let data = data else {return}
-            self.delegate?.didFinishgetStatistic(result: data)
-            }.resume()
+            self.delegate?.didFinishgetPendingGames(result: data)
+        }.resume()
 
     }
     
-    func getChessdotcomPendingGames() {
+    func getStatisticData() {
         
         let user = "hectorcarrasco"
         let jsonUrlUserInfoString="https://api.chess.com/pub/player/"+user+"/stats"
         guard let url = URL(string: jsonUrlUserInfoString) else {return}
         URLSession.shared.dataTask(with: url){ (data, response, err) in
             guard let data = data else {return}
-            self.delegate?.didFinishgetPendingGames(result: data)
+            self.delegate?.didFinishgetStatistic(result: data)
         }.resume()
     }
     

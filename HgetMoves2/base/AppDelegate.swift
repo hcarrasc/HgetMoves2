@@ -14,9 +14,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        statusItem.button?.title = "chess"
+        statusItem.button?.title = "HCGetmoves 2"
         statusItem.button?.target = self
         statusItem.button?.action = #selector(showSettings)
+        NSApp.setActivationPolicy(.accessory)
+        UserDefaults.standard.setValue(0, forKey: "rating")
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -38,7 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popoverView.contentViewController = vc
         popoverView.behavior = .transient
         popoverView.show (relativeTo: button.bounds, of: button, preferredEdge: .maxY)
-        
     }
     
     func changeAppTitle (title: String) {

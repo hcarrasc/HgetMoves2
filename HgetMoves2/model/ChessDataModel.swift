@@ -13,13 +13,11 @@ class ChessDataModel: NSObject {
     struct ChessGames: Decodable{
         let games : [Games]
     }
-    
     struct Games: Decodable {
         let url: String
         let move_by : Int32
         let last_activity : Int32
     }
-    
     struct Stats: Decodable {
         let chess_daily: ChessDaily
         let chess960_daily: Chess960Daily
@@ -29,7 +27,6 @@ class ChessDataModel: NSObject {
         let tactics: Tactics
         let lessons: Lessons
     }
-    
     struct ChessDaily : Decodable {
         var last: Last
         var best: Best

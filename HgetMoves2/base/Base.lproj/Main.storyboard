@@ -725,9 +725,9 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wy3-BJ-YXY">
-                                <rect key="frame" x="36" y="207" width="145" height="17"/>
+                                <rect key="frame" x="16" y="207" width="185" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Show ELO in menu bar" id="zAE-dx-bag">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Show data (ELO) in menu bar" id="zAE-dx-bag">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -744,6 +744,30 @@
                                     <action selector="setShowELO:" target="HNe-eA-UEB" id="KYl-zb-3MK"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfD-uO-hp4">
+                                <rect key="frame" x="37" y="162" width="146" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Quiero ver en menu bar" id="HyR-jc-1QW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joe-jh-lt1">
+                                <rect key="frame" x="205" y="155" width="183" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="Maximo ELO" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="wc9-I5-wA0" id="AnC-v5-4xc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="lU4-t6-TdF">
+                                        <items>
+                                            <menuItem title="Maximo ELO" state="on" id="cgS-PQ-Ohd"/>
+                                            <menuItem title="Movimientos pendientes" id="Shv-gC-7BA"/>
+                                            <menuItem title="ELO ganado/perdido hoy" id="wc9-I5-wA0"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                     </view>
                     <connections>
