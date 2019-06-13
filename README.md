@@ -13,4 +13,4 @@ Menu bar application for mac osx, which show your statistics from chess.com, pen
 ## Preview:
 - preview 1:
 
-![alt text](http://hcarrasco.cl/apps/hgetmoves2/getmoves1.png)
+![alt text](http://hcarrasco.cl/apps/hgetmoves2/prev-1.png)
