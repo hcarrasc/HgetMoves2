@@ -21,6 +21,7 @@ class WebserviceHandler: NSObject {
         
         let user = "hectorcarrasco"
         let jsonUrlPendingGamesString="https://api.chess.com/pub/player/"+user+"/games/to-move"
+        print("Connecting to:  \(jsonUrlPendingGamesString)")
         guard let url = URL(string: jsonUrlPendingGamesString) else {return}
         URLSession.shared.dataTask(with: url){ (data, response, err) in
             guard let data = data else {return}
@@ -33,11 +34,25 @@ class WebserviceHandler: NSObject {
         
         let user = "hectorcarrasco"
         let jsonUrlUserInfoString="https://api.chess.com/pub/player/"+user+"/stats"
+        print("Connecting to:  \(jsonUrlUserInfoString)")
         guard let url = URL(string: jsonUrlUserInfoString) else {return}
         URLSession.shared.dataTask(with: url){ (data, response, err) in
             guard let data = data else {return}
             self.delegate?.didFinishgetStatistic(result: data)
         }.resume()
     }
+    
+    func getLichessData() {
+        
+        let user = "hectorcarrasco"
+        let jsonUrlUserInfoString="https://api.chess.com/pub/player/"+user+"/stats"
+        print("Connecting to:  \(jsonUrlUserInfoString)")
+        guard let url = URL(string: jsonUrlUserInfoString) else {return}
+        URLSession.shared.dataTask(with: url){ (data, response, err) in
+            guard let data = data else {return}
+            self.delegate?.didFinishgetStatistic(result: data)
+        }.resume()
+    }
+
     
 }

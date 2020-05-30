@@ -43,11 +43,13 @@ class ChessDataModel: NSObject {
         var last: Last
         var best: Best
         var record: Record
+        //var tournament: Tournament
     }
     struct ChessBullet : Decodable{
         var last: Last
         var best: Best
         var record: Record
+        //var tournament: Tournament
     }
     struct ChessBlitz : Decodable{
         var last: Last
