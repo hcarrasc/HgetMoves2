@@ -108,13 +108,13 @@ class ViewController: NSViewController, NetworkDelegate {
                 let rating = UserDefaults.standard.value(forKey: "rating") as! Int
                 
                 if rating > parsingModel.chess_daily.last.rating {
-                    self.appDelegate.statusItem.button?.title = "Chess: \(parsingModel.chess_daily.last.rating) "
+                    self.appDelegate.statusItem.button?.title = "♟ ".uppercased()+" Chess: \(parsingModel.chess_daily.last.rating) "
                     UserDefaults.standard.setValue(parsingModel.chess_daily.last.rating, forKey: "rating") 
                 } else if rating < parsingModel.chess_daily.last.rating {
-                    self.appDelegate.statusItem.button?.title = "Chess: \(parsingModel.chess_daily.last.rating) "
+                    self.appDelegate.statusItem.button?.title = "♟ ".uppercased()+"Chess: \(parsingModel.chess_daily.last.rating) "
                     UserDefaults.standard.setValue(parsingModel.chess_daily.last.rating, forKey: "rating")
                 } else {
-                    self.appDelegate.statusItem.button?.title = "Chess: \(parsingModel.chess_daily.last.rating) "
+                    self.appDelegate.statusItem.button?.title = "♟ ".uppercased()+"Chess: \(parsingModel.chess_daily.last.rating) "
                     UserDefaults.standard.setValue(parsingModel.chess_daily.last.rating, forKey: "rating")
                 }
                 

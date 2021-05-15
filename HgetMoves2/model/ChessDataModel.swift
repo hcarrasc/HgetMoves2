@@ -31,13 +31,13 @@ class ChessDataModel: NSObject {
         var last: Last
         var best: Best
         var record: Record
-        var tournament: Tournament
+        //var tournament: Tournament
     }
     struct Chess960Daily : Decodable{
         var last: Last
         var best: Best
         var record: Record
-        var tournament: Tournament
+        //var tournament: Tournament
     }
     struct ChessRapid : Decodable{
         var last: Last
